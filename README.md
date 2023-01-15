@@ -12,7 +12,11 @@ avrdude -F -V -c arduino -p ATMEGA328P -P  /dev/cu.usbserial-110 -b 115200 -U fl
 
 .vscode içerisinde bulunan c_cpp_properties.json dosyasının içerisine aşağıdakilerin eklenmesi ile kütüphaneler tanınır hale gelecektir. 
 
+<<<<<<< Updated upstream
 > [!]
+=======
+> :warning:
+>>>>>>> Stashed changes
 > Bu içerik configurations listesine bir öge olarak eklenmelidir.
 
 ````
