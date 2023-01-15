@@ -4,9 +4,9 @@
             "name": "AVR",
             "intelliSenseMode": "${default}",
             "compilerPath": "/opt/homebrew/bin/avr-gcc",
-            "includePath": [
-                "/opt/homebrew/include"
-            ],
+            "cStandard": "${default}",
+            "cppStandard": "${default}",
+            "includePath": [],
             "compilerArgs": [
                 "-g",
                 "-Os",
@@ -18,7 +18,12 @@
                 "-pipe",
                 "-mmcu=ATmega328p",
                 "-DF_CPU=8000000UL"
+            ],
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
             ]
         }
-    ]
+    ],
+    "version": 4
 }

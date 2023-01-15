@@ -1,0 +1,6 @@
+{
+    "AVR.source.compiler": "/opt/homebrew/bin/avr-gcc",
+    "AVR.programmer.tool": "/opt/homebrew/bin/avrdude",
+    "AVR.programmer.definitions": "/opt/homebrew/bin/avrdude",
+    "AVR.source.libraries": []
+}
