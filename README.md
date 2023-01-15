@@ -18,7 +18,11 @@ avr-objcopy -O ihex -R .eeprom main main.hex
 ```
 
 # Yükleme
+
+Aşağıdaki yükleme komutunu çalıştırabilmek için, öncelikle mcu modelinizi değiştirmeniz, kartınızı bağladığınız usb portunu değiştirmeniz ve son olarak eğer hex dosyanızın ismi farklı ise bunu değiştirmniz gerekmektedir
+```
 avrdude -F -V -c arduino -p ATMEGA328P -P  /dev/cu.usbserial-110 -b 115200 -U flash:w:main.hex
+```
 
 # Kütüphanelerin Tanınması
 
