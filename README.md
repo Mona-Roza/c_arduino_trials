@@ -24,7 +24,7 @@ Aşağıdaki yükleme komutunu çalıştırabilmek için, öncelikle mcu modelin
 avrdude -F -V -c arduino -p ATMEGA328P -P  /dev/cu.usbserial-110 -b 115200 -U flash:w:main.hex
 ```
 
-# Kütüphanelerin Tanınması
+# Visual Studio Code İçin Kütüphanelerin Tanınması
 
 .vscode içerisinde bulunan c_cpp_properties.json dosyasının içerisine aşağıdakilerin eklenmesi ile kütüphaneler tanınır hale gelecektir. 
 
