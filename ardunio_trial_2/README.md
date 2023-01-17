@@ -1,6 +1,6 @@
 ### Devre Şeması:
 
-[](https://github.com/Mona-Roza/Notes/blob/main/embedded_systems/images/port.png)](https://github.com/Mona-Roza/Notes/blob/main/embedded_systems/images/port.png)
+[](https://github.com/Mona-Roza/c_arduino_trials/blob/main/ardunio_trial_2/circuit_diagram.png)](https://github.com/Mona-Roza/c_arduino_trials/blob/main/ardunio_trial_2/circuit_diagram.png)
 
 
 ### Derleme :
