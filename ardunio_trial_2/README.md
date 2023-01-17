@@ -1,5 +1,8 @@
 ### Devre Şeması:
 
+[![](https://github.com/Mona-Roza/c_arduino_trials/blob/main/ardunio_trial_2/circuit_diagram.png)](https://github.com/Mona-Roza/c_arduino_trials/blob/main/ardunio_trial_2/circuit_diagram.png)
+
+
 [][(https://github.com/Mona-Roza/c_arduino_trials/blob/main/ardunio_trial_2/circuit_diagram.png)](https://github.com/Mona-Roza/c_arduino_trials/blob/main/ardunio_trial_2/circuit_diagram.png)
 
 
