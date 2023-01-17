@@ -1,6 +1,6 @@
 ### Devre Şeması:
 
-[![](https://github.com/Mona-Roza/c_arduino_trials/blob/main/arduino_trial_3_pull_up_button/circuit_diagram.png)](https://github.com/Mona-Roza/c_arduino_trials/blob/main/arduino_trial_3_pull_up_button/circuit_diagram.png)
+[![](https://github.com/Mona-Roza/c_arduino_trials/blob/main/arduino_trial_3/circuit_diagram.png)](https://github.com/Mona-Roza/c_arduino_trials/blob/main/arduino_trial_3/circuit_diagram.png)
 
 ### Derleme :
 ``` 
