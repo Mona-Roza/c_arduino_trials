@@ -8,9 +8,9 @@
 
 int main()
 {
-    // 8, 9, 10, 11 ve 12 numaralı pinler PORTB'ye bağlı
-    // 0, 1, 2, 3, 4 numaralı pinlerdir, bu pinleri çıkış
-    // olarak ayarlayalım:
+    // 8, 9, 10, 11, 12 ve 13 numaralı pinler PORTB'ye bağlı
+    // 0, 1, 2, 3, 4 numaralı Port B Registeri bitleridir,
+    // bu bitleri çıkış (1) olarak ayarlayalım:
 
     uint8_t leds[] = { PORTB0, PORTB1, PORTB2, PORTB3, PORTB4, PORTB5};
 
@@ -35,12 +35,3 @@ int main()
     } 
     return 0;
 }
-
-/*Derleme :
-avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o main.o main.c
-avr-gcc -mmcu=atmega328p main.o -o main
-avr-objcopy -O ihex -R .eeprom main main.hex
-
-Yükleme
-avrdude -F -V -c arduino -p ATMEGA328P -P  /dev/cu.usbserial-110 -b 115200 -U flash:w:main.hex
-*/
