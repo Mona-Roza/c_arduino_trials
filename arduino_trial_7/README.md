@@ -1,6 +1,6 @@
 ### Devre Şeması:
 
-[![](https://github.com/Mona-Roza/c_arduino_trials/blob/main/arduino_trial_7/circuit_diagram.png)]
+[![](https://github.com/Mona-Roza/c_arduino_trials/blob/main/arduino_trial_7/circuit_diagram.png)](https://github.com/Mona-Roza/c_arduino_trials/blob/main/arduino_trial_7/circuit_diagram.png)
 
 ### Seven Segment Display:
 
