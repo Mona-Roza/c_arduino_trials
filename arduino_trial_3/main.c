@@ -1,5 +1,8 @@
 #include <avr/io.h>
 
+#define PIN_HIGH        (PIND & (1<<7))
+#define PIN_LOW         (!PIN_HIGH)
+
 int main(){
     // 7. pini (D Registerinin 7. biti 
     //ve arduino üzerinde 7 numaralı pin) 
