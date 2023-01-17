@@ -17,4 +17,4 @@ avr-objcopy -O ihex -R .eeprom main main.hex
 ```
 avrdude -F -V -c arduino -p ATMEGA328P -P  /dev/cu.usbserial-110 -b 115200 -U flash:w:main.hex
 ```
-### [Tinkercad](https://www.tinkercad.com/things/3S4Auxvxrz4-arduinotrial3) üzerinden simüle edebilirsiniz.
+### [Tinkercad](https://www.tinkercad.com/things/3S4Auxvxrz4) üzerinden simüle edebilirsiniz.
