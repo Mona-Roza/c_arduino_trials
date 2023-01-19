@@ -32,16 +32,17 @@ eimsk_t reg_eimsk = (eimsk_ptr_t) REG_ADDRESS_OF_EIMSK;
 şeklinde tanımlanacak kod parçası optimizasyona girebilecek
 bir kod parçası olduğundan bunun için bir makro atıyoruz
 */
+
 #define REG_EIMSK                ((eimsk_ptr_t)REG_ADDRESS_OF_EIMSK)
 
 #define INTERRUPT_ENABLE              1
 #define INTERRUPT_DISABLE             0
 
 
-typedef struct main
+typedef struct 
 {
-    uint8_t int0_mode: 2;
-    uint8_t int1_mode: 2;
+    uint8_t int0_mode:2;
+    uint8_t int1_mode:2;
     uint8_t reserved:4;
 }eicra_t, *eicra_ptr_t;
 

@@ -13,7 +13,7 @@
 #define REG_ADDR_PORTC                      0x28
 #define REG_ADDR_PIND                       0x29
 #define REG_ADDR_DDRD                       0x2A
-#define REG_ADDR_PORT_D                     0x2B
+#define REG_ADDR_PORTD                      0x2B
 
 /*******************STANDARD_DEFINITION_OF_GPIO*******************/
 #define _REG_PINB                           (*(volatile uint8_t*) REG_ADDR_PINB)
@@ -26,7 +26,7 @@
 #define _REG_DDRD                           (*(volatile uint8_t*) REG_ADDR_DDRD)
 #define _REG_PORTD                          (*(volatile uint8_t*) REG_ADDR_PORTD)
 
-typedef struct main
+typedef struct
 {
     uint8_t pin0:1;
     uint8_t pin1:1;
@@ -38,11 +38,11 @@ typedef struct main
     uint8_t pin7:1;
 }pin_t, *pint_ptr_t;
 
-typedef union main
+typedef union 
 {
     pin_t pins;
     volatile uint8_t port;
-}port_t, port_ptr_t;
+}port_t, *port_ptr_t;
 
 /***************************PORT_UNIONS***************************/
 

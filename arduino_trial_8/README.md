@@ -1,3 +1,8 @@
+### Devre Şeması:
+
+[![](https://github.com/Mona-Roza/c_arduino_trials/blob/main/arduino_trial_8/circuit_diagram.png)](https://github.com/Mona-Roza/c_arduino_trials/blob/main/arduino_trial_8/circuit_diagram.png)
+
+
 ### Derleme:
 
 ``` 
@@ -13,4 +18,4 @@ avr-objcopy -O ihex -R .eeprom main main.hex
 ```
 avrdude -F -V -c arduino -p ATMEGA328P -P  /dev/cu.usbserial-110 -b 115200 -U flash:w:main.hex
 ```
-### [Tinkercad](https://www.tinkercad.com/things/kQyTbtTztz1) üzerinden simüle edebilirsiniz.
+### [Tinkercad](https://www.tinkercad.com/things/h3dHzyGhtCk) üzerinden simüle edebilirsiniz.
