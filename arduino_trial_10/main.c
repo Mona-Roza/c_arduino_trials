@@ -72,10 +72,12 @@ değerler işlenebilir veya prescaling olmadan değerler işlenebilir.
 - Timer0 ve Timer2, TCNT0 (Timer/Counter Register) içinde sayar. Yani
 counterin olduğu 8 bitlik memory alanıdır.
 
-- Timerler genel anlamda sınır değerlerine kadar sayarlar, sınır de-
+
+- No Prescaling:
+Timerler genel anlamda sınır değerlerine kadar sayarlar, sınır de-
 ğerlerine geldiklerinde bir OVERFLOW FLAG döndürerek sıfırlanırlar.
-Prescale kullanıldığında ise, kaçlık bir prescale değer kullanıl-
-mışsa clock pulse'un o prescale değerine bölümü kadar sonra flag 
-döndürür.
+
+-Prescale kullanıldığında, kaçlık bir prescale değer kullanılmışsa 
+clock pulse'un o prescale değerine bölümü kadar sonra flag döndürür.
 
 */
