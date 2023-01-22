@@ -6,5 +6,70 @@
     "files.associations": {
         "*.c": "c",
         "_328p_external_inrerrups.h": "c"
-    }
+    },
+    "better-comments.tags": [
+        {
+            "tag": "#",
+            "color": "#000000",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "#A689E1",
+            "bold": true,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#A689E1",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "**",
+            "color": "#FFFF66",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "!!!",
+            "color": "#FF9F90",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "-",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "FORMÜL:",
+            "color": "#FFFF66",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ]
 }

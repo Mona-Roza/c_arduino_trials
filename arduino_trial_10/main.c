@@ -1,81 +1,81 @@
-#include <stdint.h>
-#include <avr/interrupt.h>
+/* 
+# TIMERS / COUNTERS:
 
-// PCICR -> Pin Change Interrupt Register
+- Timer'lar basit sayaç devreleridir.
 
-#define REG_ADDR_PCICR              0x68
-#define REG_PCICR                   ((pcicr_ptr_t) REG_ADDR_PCICR)
+- Atmega328p'de 3 adet timer modülü vardır:
 
-#define REG_ADDR_PCMSK0             0x6B
-#define REG_PCMSK0                  ((pcmsk0_ptr_t) REG_ADDR_PCMSK0)
+        -Timer0 Register: 8 bittir, max alabileceği 255'tir.
 
-#define REG_ADDR_PCMSK1             0x6C
-#define REG_PCMSK1                  ((pcmsk1_ptr_t) REG_ADDR_PCMSK1)
+        - Timer1 Register: 16 bittir, max alabileceği 65535'tir.
 
-#define REG_ADDR_PCMSK2             0x6D
-#define REG_PCMSK2                  ((pcmsk2_ptr_t) REG_ADDR_PCMSK2)
+        - Timer2 Register: 8 bittir, max alabileceği 255'tir.
 
-#define PCINT_ENABLE                1
+!!! Timer0 ve Timer2 daha kısa süreli zamanlar için işimize yarar.
+Özellikle Timer2'nin geniş bir alana hitap etmesinden dolayı çok
+kısa süreler için Timer2 daha kullanışlıdır ve daha çok kullanı-
+lır.
+Timer1 ise daha uzun sürelere hitap eder. 
 
+!!! 16 000 000 frekanslı bir MCU, 250'lik bir counter vasıtasıyla 
+16 000/250'den mili saniyede 64 tane işlem yapar.
 
-typedef struct main
-{
-    uint8_t pcie0:1;
-    uint8_t pcie1:1;
-    uint8_t pcie2:1;
-    uint8_t reserved:5;
-}pcicr_t, *pcicr_ptr_t;
+!!! Dolup sıfırlama da PWM (Pulse With Modulation)'de de (Darbe Ge-
+nişlik Modülasyonu) görülür.
 
-typedef struct main
-{
-    uint8_t pcint0:1;
-    uint8_t pcint1:1;
-    uint8_t pcint2:1;
-    uint8_t pcint3:1;
-    uint8_t pcint4:1;
-    uint8_t pcint5:1;
-    uint8_t pcint6:1;
-    uint8_t pcint7:1;
-}pcmsk0_t, *pcmsk0_ptr_t;
+!!! Timer'lar CPU'dan bağımsız çalışırlar.
 
-typedef struct main
-{
-    uint8_t pcint8:1;
-    uint8_t pcint9:1;
-    uint8_t pcint10:1;
-    uint8_t pcint11:1;
-    uint8_t pcint12:1;
-    uint8_t pcint13:1;
-    uint8_t pcint14:1;
-    uint8_t reserved:1;
-}pcmsk1_t, *pcmsk1_ptr_t;
+- Timer Clock Time Period: 1/F_CPU'dur. 
+(Yani counteri 1 arttırmanınsüresi.)
 
-typedef struct main
-{
-    uint8_t pcint16:1;
-    uint8_t pcint17:1;
-    uint8_t pcint18:1;
-    uint8_t pcint19:1;
-    uint8_t pcint20:1;
-    uint8_t pcint21:1;
-    uint8_t pcint22:1;
-    uint8_t pcint23:1;
-}pcmsk2_t, *pcmsk2_ptr_t;
+- İstenilen gecikmeyi hesaplamak için:
+Formül: Timer count = (Delay / Clock Time Period) - 1
 
-ISR(PCINT0_vect)
-{
+- 16 000 000 F_CPU için 10 ms delayda Timer Count = 39999 clock pulse 
+olur. Bu değerleri elimizdeki Timer Registerlerle elde etmek mümkün
+olmadığından -tabiiki bunu yazılımda if else kullanarak düzenleye-
+biliriz ancak buradaki amacımız hardware yönünden düzenleme yapmak-
+bu noktada prescaler kavramı devreye giriyor.
 
-}
+- 8 - 64 - 256 - 1024 -> TC0 & TC1 Prescaler
+- 8 - 32 - 64 - 128 - 256 - 1024 -> TC2 Prescaler
 
-int main(){
-    
-    /******** Interrupt Initializing ********/
-    //0'dan 7'ye kadar olan pinlerin interruptlarını açtık
-    REG_PCICR->pcie0 = PCINT_ENABLE;
-    
-    //B Portunun 0. pinini (8. pin) aktif ettik 
-    REG_PCMSK0->pcint0 = PCINT_ENABLE;
+!!! Bu prescale değerleri cpu frekansını bölümleyebildiğimiz sınırlardır.
 
-    sei();
-    /**** Enf of Interrupt Initializing ****/
-}
+- F_CPU / Precaler_değer şeklinde kullanılır. 
+
+!!! Burada CPU hızını yavaşlatmıyoruz, timer'a giren referans fre-
+kansı düşürüyoruz.
+
+- Buradan hesaplama yapmak için;
+Formül: Timer Count = (Delay / (Clock Time Period * Prescale_Val)) - 1
+
+!!! Prescaling arttıkça, Resolution düşer. Bu nedenle Prescale de-
+ğerlerini bol keseden kullanmamak, hesaplamalarla kullanmak gerekir.
+
+## Timer0:
+
+- Timer0 için, TCCR0A ve TCCR0B (Timer/Counter Control Register) olmak
+üzere 2 tane registeri vardır.
+
+        Adres   7       6      5        4       3       2       1       0       
+TCCR0A: 0x44 COM0A1  COM0A2  COM0B1  COM0B0     -       -     WGM01   WGM00    
+TCCR0B: 0x45 FOC0A   FOC0B     -        -     WGM02    CS02   CS01    CS00
+
+- WGM00 ve WGM01-> (Wawe Form Generation Mode) Timer'in çalışma modunu
+belirlerler. WGM02 ile kombine edilerek kullanılır. 
+
+- CS00, CS01, CS01 -> (Clock Select) Birleştirilerek kullanacağız. Dur-
+durma, çalıştırma gibi işlemleri yaptırırız. İlgili prescalingler ile
+değerler işlenebilir veya prescaling olmadan değerler işlenebilir.
+
+- Timer0 ve Timer2, TCNT0 (Timer/Counter Register) içinde sayar. Yani
+counterin olduğu 8 bitlik memory alanıdır.
+
+- Timerler genel anlamda sınır değerlerine kadar sayarlar, sınır de-
+ğerlerine geldiklerinde bir OVERFLOW FLAG döndürerek sıfırlanırlar.
+Prescale kullanıldığında ise, kaçlık bir prescale değer kullanıl-
+mışsa clock pulse'un o prescale değerine bölümü kadar sonra flag 
+döndürür.
+
+*/
