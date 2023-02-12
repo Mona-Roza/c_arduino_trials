@@ -1,4 +1,17 @@
 # MCU C Kodu Derleme ve Yükleme
+İsteğe göre aşağıda "Derleme" ve "Yükleme" şeklinde başlıklandırılmış komutlar kullanılarak veya her dosyanın içerisinde bulunan "compile_and_push.sh" scripti kullanılarak derleme ve yükleme yapılabilir.
+
+:warning: compile_and_push.sh scriptinin kullanılabilmesi için öncelikle bu scriptin çalıştırılmasına izin verilmelidir. İzin vermek için 
+
+```bash
+chmod 755 compile_and_push.sh
+```
+
+komutu bir kereye mahsus çalıştırılmalıdır. Ardından
+```bash
+./compile_and_push.sh
+```
+komutu ile derleme ve yükleme yapabilirsiniz.
 
 ## Derleme : 
 
@@ -17,7 +30,7 @@ avr-gcc -mmcu=atmega328p main.o -o main
 avr-objcopy -O ihex -R .eeprom main main.hex
 ```
 
-# Yükleme
+## Yükleme
 
 Aşağıdaki yükleme komutunu çalıştırabilmek için, öncelikle mcu modelinizi değiştirmeniz, kartınızı bağladığınız usb portunu değiştirmeniz ve son olarak eğer hex dosyanızın ismi farklı ise bunu değiştirmniz gerekmektedir
 ```
