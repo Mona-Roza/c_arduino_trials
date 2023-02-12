@@ -1,9 +1,3 @@
-### Devre Şeması:
-
-[![](https://github.com/Mona-Roza/c_arduino_trials/blob/main/arduino_trial_2/circuit_diagram.png)](https://github.com/Mona-Roza/c_arduino_trials/blob/main/arduino_trial_2/circuit_diagram.png)
-
-### [Tinkercad](https://www.tinkercad.com/things/1i0Qh7zPBzX?sharecode=_YxbSlKACEuUx-94QhmKP3ZzCV6a-VfdGGGVq8HZgbU) üzerinden simüle edebilirsiniz.
-
 # MCU C Kodu Derleme ve Yükleme
 İsteğe göre aşağıda "Derleme" ve "Yükleme" şeklinde başlıklandırılmış komutlar kullanılarak veya her dosyanın içerisinde bulunan "compile_and_push.sh" scripti kullanılarak derleme ve yükleme yapılabilir.
 
