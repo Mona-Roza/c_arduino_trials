@@ -1,7 +1,7 @@
 {
     "AVR.source.compiler": "/opt/homebrew/bin/avr-gcc",
     "AVR.programmer.tool": "/opt/homebrew/bin/avrdude",
-    "AVR.programmer.definitions": "/opt/homebrew/bin/avrdude",
+    "AVR.programmer.definitions": "Users/monaroza/Library/Arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf",
     "AVR.source.libraries": [],
     "files.associations": {
         "*.c": "c",
